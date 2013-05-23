@@ -98,3 +98,14 @@ echo 'export PATH="/app/.jdk/bin:$PATH"' >> $PROFILE_PATH
 echo 'export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Djava.rmi.server.useCodebaseOnly=true"' >> $PROFILE_PATH
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
+
+echo '---> Getting takipi installer'
+
+curl --silent --location https://s3.amazonaws.com/app-takipi-com/tests/takipi-buildpack-common.tar.gz | tar xz
+. bin/takipi
+
+echo '---> About to start installing takipi'
+
+takipi_common_install
+echo '---> Takipi installed'
+
