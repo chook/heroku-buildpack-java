@@ -49,7 +49,7 @@ echo " done"
 
 # install Takipi
 echo -n "-----> Installing Takipi..."
-#takipi_common_install ${BUILD_DIR}
+takipi_common_install ${BUILD_DIR}
 echo " done"
 
 # change to cache dir to install maven
