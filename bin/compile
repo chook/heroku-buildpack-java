@@ -45,9 +45,9 @@ install_java ${BUILD_DIR} ${javaVersion}
 jdk_overlay ${BUILD_DIR}
 echo " done"
 
+# install Takipi
 echo -n "-----> Installing Takipi"
-
-takipi_common_install
+takipi_common_install ${BUILD_DIR}
 
 # change to cache dir to install maven
 cd $CACHE_DIR
