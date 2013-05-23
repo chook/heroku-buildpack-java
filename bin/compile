@@ -15,8 +15,8 @@ LOGGER_FLAGS=""
 curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xz
 . bin/java
 
-curl --silent --location https://s3.amazonaws.com/app-takipi-com/tests/takipi-buildpack-common.tar.gz | tar xz
-. bin/takipi
+#curl --silent --location https://s3.amazonaws.com/app-takipi-com/tests/takipi-buildpack-common.tar.gz | tar xz
+#taki. bin/takipi
 
 KEEP_M2_CACHE="true"
 
