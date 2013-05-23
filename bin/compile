@@ -15,6 +15,9 @@ LOGGER_FLAGS=""
 curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xz
 . bin/java
 
+curl --silent --location https://s3.amazonaws.com/app-takipi-com/tests/takipi-buildpack-common.tar.gz | tar xz
+. bin/takipi
+
 KEEP_M2_CACHE="true"
 
 if [ ! -d $CACHE_DIR ]; then
@@ -41,6 +44,10 @@ echo -n "-----> Installing OpenJDK ${javaVersion}..."
 install_java ${BUILD_DIR} ${javaVersion}
 jdk_overlay ${BUILD_DIR}
 echo " done"
+
+echo -n "-----> Installing Takipi"
+
+takipi_common_install
 
 # change to cache dir to install maven
 cd $CACHE_DIR
@@ -99,12 +106,3 @@ echo 'export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Djava.rmi.server.useCodebase
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
 
-echo '---> Getting takipi installer'
-
-curl --silent --location https://s3.amazonaws.com/app-takipi-com/tests/takipi-buildpack-common.tar.gz | tar xz
-. bin/takipi
-
-echo '---> About to start installing takipi'
-
-takipi_common_install
-echo '---> Takipi installed'
