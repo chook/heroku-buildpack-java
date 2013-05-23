@@ -48,6 +48,7 @@ echo " done"
 # install Takipi
 echo -n "-----> Installing Takipi"
 takipi_common_install ${BUILD_DIR}
+echo " done"
 
 # change to cache dir to install maven
 cd $CACHE_DIR
@@ -105,4 +106,3 @@ echo 'export PATH="/app/.jdk/bin:$PATH"' >> $PROFILE_PATH
 echo 'export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Djava.rmi.server.useCodebaseOnly=true"' >> $PROFILE_PATH
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
-
