@@ -13,5 +13,3 @@ config_vars:
 addons:
   heroku-postgresql:dev
 EOF
-
-takipi-service --daemon
